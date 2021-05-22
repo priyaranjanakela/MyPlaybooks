@@ -3,7 +3,8 @@
    become: true
    tasks:
            - jboss:
-                   src: /tmp/SampleWebApp.war
+                   src: /tmp/SampleWebApp.waiir
+                   deploy_path: /home/ansible/Jboss-Test/jboss-eap-7.1.0/jboss-eap-7.1/standalone/deployments
                    deployment: SampleWebApp.war
                    state: present
 
