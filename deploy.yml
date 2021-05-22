@@ -1,5 +1,5 @@
 ---
- - hosts: test
+ - hosts: 192.168.59.139
    become: true
    tasks:
            - jboss:
