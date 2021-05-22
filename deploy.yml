@@ -7,5 +7,5 @@
                    src: /tmp/SampleWebApp.war
                    deploy_path: /home/ansible/Jboss-Test/jboss-eap-7.1.0/jboss-eap-7.1/standalone/deployments
                    deployment: SampleWebApp.war
-                   state: present
+                   state: absent
 
