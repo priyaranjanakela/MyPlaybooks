@@ -1,7 +1,8 @@
 ---
- - hosts: 192.168.59.139
+ - hosts: all
    become: true
    tasks:
+
            - jboss:
                    src: /tmp/SampleWebApp.war
                    deploy_path: /home/ansible/Jboss-Test/jboss-eap-7.1.0/jboss-eap-7.1/standalone/deployments
