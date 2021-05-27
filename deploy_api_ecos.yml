@@ -6,6 +6,6 @@
    tasks:
            - name: jboss_url
              shell: |
-                     curl --digest -L -D - "{{ jboss_url=jboss_url+1 }}" --header "Content-Type: application/json" -u akela:Gibi@1234 -d '{"operation" : "add", "address" : {"deployment" : "SampleWebApp.war"}, "content" : [{"url" : "file:/tmp/SampleWebApp.war"}],"json.pretty":1}'
+                     curl --digest -L -D - "{{ jboss_url=$(jboss_url+1) }}" --header "Content-Type: application/json" -u akela:Gibi@1234 -d '{"operation" : "add", "address" : {"deployment" : "SampleWebApp.war"}, "content" : [{"url" : "file:/tmp/SampleWebApp.war"}],"json.pretty":1}'
                   
 
