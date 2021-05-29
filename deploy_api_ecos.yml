@@ -3,6 +3,6 @@
    become: true
    tasks:
            - name: deploy jboss
-             shell: deploy.sh 
+             shell: /var/lib/awx/projects/myrepo/deploy.sh 
                   
 
