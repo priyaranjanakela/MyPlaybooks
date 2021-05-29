@@ -4,7 +4,9 @@
    become_user: root
    become_method: sudo
    tasks:
+           - name: Transfer the script
+             copy: src=/opt/deploy.sh dest=/home/ansible mode=0777
            - name: deploy jboss
-             script: /opt/deploy.sh 
+             script: /home/ansible/deploy.sh 
                   
 
