@@ -1,6 +1,8 @@
 ---
  - hosts: all
    become: true
+   become_user: root
+   become_method: sudo
    tasks:
            - name: deploy jboss
              shell: /var/lib/awx/projects/myrepo/deploy.sh 
