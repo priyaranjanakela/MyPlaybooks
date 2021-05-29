@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   become: true
+   tasks:
+           - name: UnDeploy war
+             shell: |
+                     curl --digest -L -D - http://127.0.0.1:9990/management --header "Content-Type: application/json" -u akela:Gibi@1234 -d '{"operation" : "composite", "address" : [], "steps" : [{"operation" : "undeploy", "address" : {"deployment" : "SampleWebApp.war"}},{"operation" : "remove", "address" : {"deployment" : "SampleWebApp.war"}}],"json.pretty":1}'
+                  
+
