@@ -5,6 +5,6 @@
            - name: Transfer the script
              copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
            - name: deploy jboss
-             script: sh /home/ansible/deploy.sh 
+             command: sh /home/ansible/deploy.sh 
                   
 
