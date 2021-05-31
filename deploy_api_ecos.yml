@@ -2,7 +2,7 @@
  - hosts: all
    become: true
    become_user: root
-   become_method: yes
+   become_method: sudo
    tasks:
            - name: Transfer the script
              copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 remote_src=yes
