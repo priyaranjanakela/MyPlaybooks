@@ -3,7 +3,7 @@
    become: true
    tasks:
            - name: Transfer the script
-             copy: src=/var/lib/awx/projects/myrepo/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
+             copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
            - name: deploy jboss
              script: sh /home/ansible/deploy.sh 
                   
