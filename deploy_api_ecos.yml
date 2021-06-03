@@ -1,10 +1,17 @@
 ---
  - hosts: all
    become: true
+   vars:
+     - script: "./deploy.sh"
    tasks:
-           - name: Transfer the script
-             copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
-           - name: deploy jboss
-             command: sh /home/ansible/deploy.sh 
+   - name: Transfer the script
+     copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
+   - name: deploy jboss
+     shell:
+        "{{ script | quote}}"
+     args:
+        chdir: "/home/ansible/"
+     register: fileout
+     tags: fileout    
                   
 
