@@ -8,10 +8,9 @@
      copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
    - name: deploy jboss
      shell:
-        "{{ script | quote}}"
+        "{{ script | quote}}"  
      args:
         chdir: "/home/ansible/"
-     register: fileout
-     tags: fileout    
+        executable: /bin/bash
                   
 
