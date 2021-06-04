@@ -5,18 +5,20 @@
      - script: "./deploy.sh"
    tasks:
    - name: Transfer the script
-     copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
+     copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777
+ 
    - name: deploy jboss
      shell:
         "{{ script | quote}} {{ instance_url }}"
-     register: deployoutput 
+
      with_items:
        - "{{ instance_url }}"
      when: instance_url is defined
      args:
         chdir: "/home/ansible/"
-        executable: /bin/bash 
+        executable: /bin/bash
+
    - debug:
-       msg: "{{ deployoutput.stderr }}"
+       msg: "Deployment successfull"
                   
 
