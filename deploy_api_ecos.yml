@@ -8,9 +8,8 @@
      copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777 
    - name: deploy jboss
      shell:
-        "{{ script | quote}}"  
-     args:
-        chdir: "/home/ansible/"
-        executable: /bin/bash
+        "{{ script | quote}} {{ item.instance }}" 
+     with_items:
+       - "{{ instance: url1 }}"
                   
 
