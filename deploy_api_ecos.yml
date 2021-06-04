@@ -10,7 +10,9 @@
      shell:
         "{{ script | quote}} {{ item.instance }}" 
      with_items:
-       - "instance"
+       - "{{ instance_url }}"
+     ignore_errors: yes
+     when: instance_url is defined
      args:
         chdir: "/home/ansible/"
         executable: /bin/bash 
