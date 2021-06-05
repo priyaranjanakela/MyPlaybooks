@@ -13,8 +13,8 @@
 
      with_items:
        - "{{ instance_url }}"
-     when: instance_url is defined
      ignore_errors: yes
+     when: instance_url is defined
      register: result
      args:
         chdir: "/home/ansible/"
