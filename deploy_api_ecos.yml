@@ -8,6 +8,7 @@
  
    - name: deploy jboss
      command: /home/ansible/deploy.sh
+     ignore_errors: yes
 
    - debug:
        msg: "Deployment successfull"
