@@ -2,23 +2,12 @@
  - hosts: all
    become: true
    vars:
-     - script: "./deploy.sh"
    tasks:
    - name: Transfer the script
      copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777
  
    - name: deploy jboss
-     shell:
-        "{{ script | quote}} {{ instance_url }}"
-
-     with_items:
-       - "{{ instance_url }}"
-     ignore_errors: yes
-     when: instance_url is defined
-     register: result
-     args:
-        chdir: "/home/ansible/"
-        executable: /bin/bash
+     command: /home/ansible/deploy.sh
 
    - debug:
        msg: "Deployment successfull"
