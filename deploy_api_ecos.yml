@@ -1,16 +1,20 @@
 ---
  - hosts: all
    become: true
-   vars:
    tasks:
-   - name: Transfer the script
-     copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777
- 
-   - name: deploy jboss
-     command: /home/ansible/deploy.sh
-     ignore_errors: yes
 
-   - debug:
-       msg: "Deployment successfull"
-                  
+     - name: Transfer the script
+       copy: src=/opt/deploy.sh dest=/home/ansible owner=ansible group=ansible mode=0777
 
+     - name: Trigger the script
+       expect:
+         command: /home/ansible/deploy.sh
+         responses:
+           (?i)Enter the port number: "{{ port }}"
+           (?i)Enter the user name: "{{ uname }}"
+           (?i)Enter the password: "{{ upass }}"
+           (?i)Enter the war name: "{{ war }}"
+           (?i)Enter the path: "{{ path }}"
+       no_log: True
+       register: deplpoy_output
+     - debug: msg="{{ deploy_output.stdout_lines }}"
