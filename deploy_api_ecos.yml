@@ -13,8 +13,7 @@
            (?i)Enter the port number: "{{ port }}"
            (?i)Enter the user name: "{{ uname }}"
            (?i)Enter the password: "{{ upass }}"
-           (?i)Enter the war name: "{{ war }}"
+           (?i)Enter the war name: "{{ war1 }}"
            (?i)Enter the path: "{{ path }}"
-       no_log: True
        register: deplpoy_output
      - debug: msg="{{ deploy_output.stdout_lines }}"
