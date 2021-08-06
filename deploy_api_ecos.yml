@@ -20,5 +20,6 @@
            (?i)Enter the password: "{{ upass }}"
            (?i)Enter the war name: "{{ war }}"
            (?i)Enter the path: "{{ path }}"
+         timeout: 120
        register: deplpoy_output
      - debug: msg="{{ deploy_output.stdout_lines }}"
